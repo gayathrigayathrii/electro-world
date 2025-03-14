@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@electroworldtech| Electro World</title>
+    <style>
+        /* General Styles */
+                
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 5px 0;
+        }
+
+        header h1 {
+            text-align: center;
+            margin: 0;
+        }
+
+        header nav {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 30px 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .product-card .price {
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .product-card button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .product-card button:hover {
+            background-color: #768576;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .cart-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .cart-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .cart-content ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .cart-content button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .cart-content button:hover {
+            background-color: #0ff942d9;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0 ;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body background="images/back.jpg">
+    
+    <!-- Header Section -->
+    <header>
+
+                <div class="container">
+            <h1>Electro World</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">Contact</a>
+                <a href="#" id="cart-link">Cart (0)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Listing Section -->
+    <section class="products">
+        <div class="product-card">
+            <img src="images/phone.jpg" alt="Smartphone">
+            <h3>Smartphone</h3>
+            <p>Redmi12 5G (pastel blue,6GB RAM,128GB storage)</p>
+            <p style="color: #28a745;"><b>OFFER: -32 % </b></p>
+            <p class="price"><del>$288.92</del> $163.73</p>
+            <button onclick="addToCart('Smartphone', 163.73)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/laptop1.jpg" alt="Laptop">
+            <h3>Laptop</h3>
+            <p>HP 15, AMD Ryzen 3 7320U, 8GB LPDDR5, 512GB SSD, (Win 11, Office 21, Silver, 1.6kg)</p>
+            <p style="color: #28a745;"><b>OFFER: -45 % </b></p>
+            <p class="price"><del>$721.56</del> $602.39</p>
+            <button onclick="addToCart('Laptop', 602.39)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/headphone1.jfif" alt="Headphones">
+            <h3>Headphones</h3>
+            <p>boAt Rockers 450(Aqua blue),15 HRS battery,bluetooth Headphone,wireless Headphoes with mic</p>
+            <p style="color: #28a745;"><b>OFFER: -52 % </b></p>
+            <p class="price"><del>$31.33</del> $22.77</p>
+            <button onclick="addToCart('Headphones', 22.77)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/smartwatch.jfif" alt="Smartwatch">
+            <h3>Smartwatch</h3>
+            <p>Fastrack limitless Glide Smartwatch,HD display,Advance chipset,85+ sports modes,24*7 health suite(Blue)</p>
+            <p style="color: #28a745;"><b>OFFER: -27 % </b></p>
+            <p class="price"><del>$31.21</del> $18.07</p>
+            <button onclick="addToCart('Smartwatch',18.07)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/washing.jfif" alt="washing machine">
+            <h3>Washing Machine</h3>
+            <p>LG 9KG,5star,AI Direct Drive Technology</p>
+            <p style="color: #28a745;"><b>OFFER: -50 % </b></p>
+            <p class="price"><del>$815.54</del> $590.35</p>
+            <button onclick="addToCart('Washing Machine', 590.35)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/airpods.jfif" alt="Airpods">
+            <h3>Airpods</h3>
+            <p>Apple Airpods 4 wireless Earbuds,USB-C Charing Case</p>
+            <p style="color: #28a745;"><b>OFFER: -55 % </b></p>
+            <p class="price"><del>$42.17</del> $22.77</p>
+            <button onclick="addToCart('Airpods', 22.77)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/fan.jfif" alt="Ceiling Fan">
+            <h3>Ceiling Fan</h3>
+            <p>Orient electric 1230mm ceiling fan,100% copper motor,2-years warranty(Roasted Coffee)</p>
+            <p style="color: #28a745;"><b>OFFER: -32 % </b></p>
+            <p class="price"><del>$276.98</del> $187.35</p>
+            <button onclick="addToCart('Airpods', 187.35)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/ac.jfif" alt="Inverter AC">
+            <h3>Inverter AC</h3>
+            <p>LG 1.5 Ton 3star DUAL inverter AC(copper,Diet mode+,Faster cooling & Energy saving(white))</p>
+            <p style="color: #28a745;"><b>OFFER: -52 % </b></p>
+            <p class="price"><del>$951.69</del> $454.09</p>
+            <button onclick="addToCart('Inverter AC', 454.09)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/refrigerator.jfif" alt="Refrigerator Mini">
+            <h3>Refrigerator Mini</h3>
+            <p>Blue star 45 ltr,2 star,mini refrigerator with freezer,direct cool(black)</p>
+            <p style="color: #28a745;"><b>OFFER: -34 % </b></p>
+            <p class="price"><del>$240.96</del> $196.26</p>
+            <button onclick="addToCart('Refrigerator Mini', 196.26)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/aircooler.jfif" alt="Aircooler">
+            <h3>Air Cooler</h3>
+            <p>Bajaj DMH90 neo 90l desert air cooler for larger room,high speed(white)</p>
+            <p style="color: #28a745;"><b>OFFER: -38 % </b></p>
+            <p class="price"><del>$607.11</del> $440.84</p>
+            <button onclick="addToCart('Air Cooler', 440.84)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/tv.jfif" alt="SONY TV">
+            <h3>SONY TV</h3>
+            <p>Sony BRAVIA 2 series 108cm(43 inches) 4k ultra HD smart LED google tv(black)</p>
+            <p style="color: #28a745;"><b>OFFER: -39 % </b></p>
+            <p class="price"><del>$814.33</del> $602.29</p>
+            <button onclick="addToCart('SONY TV', 602.29)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/camera.png" alt="CAMERA">
+            <h3>CAMERA</h3>
+            <p>Canon EOS R50 RF-S18-45mm f/4.5-6.3 is STM mirrorless camera(black)-4k video vlogging 24.4MP</p>
+            <p style="color: #28a745;"><b>OFFER: -17 % </b></p>
+            <p class="price"><del>$1036.02</del> $891.45</p>
+            <button onclick="addToCart('CAMERA', 891.45)">Add to Cart</button>
+        </div>
+
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p id="total-price">Total: ₹0</p>
+            <button onclick="checkout()">Proceed to Checkout</button>
+            <button onclick="closeCart()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Electro World. All Rights Reserved</p>
+          
+        
+    </footer>
+
+    <script>
+        // Cart array to store selected products
+        let cart = [];
+
+        // Function to add product to cart
+        function addToCart(productName, productPrice) {
+            const product = {
+                name: productName,
+                price: productPrice
+            };
+
+            // Add product to cart
+            cart.push(product);
+            updateCart();
+        }
+
+       // Function to update the cart display
+function updateCart() {
+    const cartLink = document.getElementById('cart-link');
+    cartLink.textContent = `Cart (₹${cart.length})`;
+
+    // Update cart modal items
+    const cartItems = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+    
+    // Clear current cart items
+    cartItems.innerHTML = '';
+
+    // Assuming the exchange rate is 1 USD = 87.47 INR
+    const exchangeRate = 87.47;
+    let total = 0;
+
+    // Add each product to cart modal
+    cart.forEach(product => {
+        const listItem = document.createElement('li');
+        const priceInINR = (product.price * exchangeRate).toFixed(2);  // Convert price to INR
+        listItem.textContent = `${product.name} =  ₹${priceInINR}`;
+        cartItems.appendChild(listItem);
+        total += product.price;  // Add to total in INR
+    });
+
+    // Convert total price to INR
+    const totalInINR = (total * exchangeRate).toFixed(2);
+
+    // Display total price in INR
+    totalPriceElement.textContent = `Total: ₹${totalInINR}`;
+}
+
+
+        // Function to open the cart modal
+        document.getElementById('cart-link').addEventListener('click', function () {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = 'flex';
+        });
+
+        // Function to close the cart modal
+        function closeCart() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = 'none';
+        }
+
+        // Function to handle checkout (simple alert for now)
+        function checkout() {
+            if (cart.length > 0) {
+                alert('Proceeding to checkout...');
+                // Here you would integrate payment methods like Stripe, PayPal, etc.
+            } else {
+                alert('Your cart is empty!');
+            }
+            closeCart();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@electroworldtech| Electro World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 150px;
+            margin: 50px;
+            background-color: white;
+            
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+        .product{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 30px 20px;
+        }
+
+        .product {
+          background-color: white;
+            padding: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            
+        }
+        .product h2 {
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .product button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        #contactForm input, #contactForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        #contactForm button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contactForm button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Our Electro World!!</h1>
+        <p>Explore our latest collection of electronic gadgets and accessories!</p>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product">
+            <img src="images/phone.jpg" alt="Smartphone">
+            <h3>Smartphone</h3>
+            <p>Redmi12 5G (pastel blue,6GB RAM,128GB storage)</p>
+            <p style="color: #28a745;"><b>OFFER: -32 % </b></p>
+            <p class="price"><del>$288</del> $165</p>
+            <button onclick="addToCart('Smartphone', 165)">Add to Cart - $165</button>
+        </div>
+        <div class="product">
+            <img src="images/laptop1.jpg" alt="Laptop">
+            <h3>Laptop</h3>
+            <p>HP 15, AMD Ryzen 3 7320U, 8GB LPDDR5, 512GB SSD, (Win 11, Office 21, Silver, 1.6kg)</p>
+            <p style="color: #28a745;"><b>OFFER: -45 % </b></p>
+            <p class="price"><del>$721</del> $603</p>
+            <button onclick="addToCart('Laptop', 603)">Add to Cart - $603</button>
+        </div>
+        <div class="product">
+            <img src="images/headphone1.jfif" alt="Headphones">
+            <h3>Headphones</h3>
+            <p>boAt Rockers 450(Aqua blue),15 HRS battery,bluetooth Headphone,wireless Headphoes with mic</p>
+            <p style="color: #28a745;"><b>OFFER: -52 % </b></p>
+            <p class="price"><del>$33</del> $24</p>
+            <button onclick="addToCart('Headphones', 24)">Add to Cart - $24</button>
+        </div>
+        <div class="product">
+            <img src="images/smartwatch.jfif" alt="Smartwatch">
+            <h3>Smartwatch</h3>
+            <p>Fastrack limitless Glide Smartwatch,HD display,Advance chipset,85+ sports modes,24*7 health suite(Blue)</p>
+            <p style="color: #28a745;"><b>OFFER: -27 % </b></p>
+            <p class="price"><del>$33</del> $19</p>
+            <button onclick="addToCart('Smartwatch', 19)">Add to Cart - $19</button>
+        </div>
+        <div class="product">
+            <img src="images/washing.jfif" alt="washing machine">
+            <h3>Washing Machine</h3>
+            <p>LG 9KG,5star,AI Direct Drive Technology</p>
+            <p style="color: #28a745;"><b>OFFER: -50 % </b></p>
+            <p class="price"><del>$818</del> $593</p>
+            <button onclick="addToCart('Washing machine', 593)">Add to Cart - $593</button>
+            </div>
+            <div class="product">
+            <img src="images/airpods.jfif" alt="Airpods">
+            <h3>Airpods</h3>
+            <p>Apple Airpods 4 wireless Earbuds,USB-C Charing Case</p>
+            <p style="color: #28a745;"><b>OFFER: -55 % </b></p>
+            <p class="price"><del>$46</del> $27</p>
+            <button onclick="addToCart('Airpods', 27)">Add to Cart - $27</button>
+            </div>
+            <div class="product">
+            <img src="images/ac.jfif" alt="Inverter AC">
+            <h3>Inverter AC</h3>
+            <p>LG 1.5 Ton 3star DUAL inverter AC(copper,Diet mode+,Faster cooling & Energy saving(white))</p>
+            <p style="color: #28a745;"><b>OFFER: -52 % </b></p>
+            <p class="price"><del>$955</del> $455</p>
+            <button onclick="addToCart('Inverter AC', 455)">Add to Cart - $455</button>
+            </div>
+           <div class="product">
+           <img src="images/refrigerator.jfif" alt="Refrigerator Mini">
+            <h3>Refrigerator Mini</h3>
+            <p>Blue star 45 ltr,2 star,mini refrigerator with freezer,direct cool(black)</p>
+            <p style="color: #28a745;"><b>OFFER: -34 % </b></p>
+            <p class="price"><del>$289</del> $217</p>
+            <button onclick="addToCart('Refrigerator Mini', 217)">Add to Cart - $217</button>
+            </div>
+    </section>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </ul>
+        <p>Total: $<span id="totalPrice">0</span></p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+           
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+           
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+           
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Electronics Store</p>
+    </footer>
+
+    <script>
+         let cart = [];
+        
+let total = 0;
+const exchangeRate = 83; // 1 USD = 83 INR (update as needed)
+
+function addToCart(productName, productPriceUSD) {
+    let productPriceINR = productPriceUSD * exchangeRate; // Convert USD to INR
+    cart.push({ name: productName, price: productPriceINR });
+    total += productPriceINR;
+    updateCart();
+}
+
+function updateCart() {
+    let cartItems = document.getElementById('cartItems');
+    let totalPrice = document.getElementById('totalPrice');
+
+    if (!cartItems || !totalPrice) return;
+
+    cartItems.innerHTML = '';
+
+    cart.forEach(item => {
+        let li = document.createElement('li');
+        li.textContent = `${item.name} - ₹${item.price.toFixed(2)}`;
+        cartItems.appendChild(li);
+    });
+
+    totalPrice.textContent = "Total: ₹" + total.toFixed(2);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    let contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Thank you for contacting us, we'll get back to you soon.");
+        });
+    }
+});
+
+
+    </script>
+</body>
+</html>
